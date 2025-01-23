@@ -1,0 +1,25 @@
+.tick {
+    font-size: 1rem;
+}
+
+.tick-label {
+    font-size: .375em;
+    text-align: center;
+}
+
+.tick-group {
+    margin: 0 .25em;
+    text-align: center;
+}
+
+
+.splash .tick-label {
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    color: #b8bab9
+}
+
+.splash .tick-flip {
+    font-family: Oswald Regular, oswald-regular, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif
+}

@@ -1,0 +1,245 @@
+﻿@keyframes fall-down {
+    from
+
+{
+    transform: translateY(0);
+}
+
+to {
+    transform: translateY(100vh);
+}
+
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes wiggle {
+    to {
+        transform: translateX(-50px);
+    }
+}
+
+@keyframes jump-in {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+
+body.fun-mode a:hover::after {
+    position: absolute;
+    top: -4px;
+    left: -18px;
+    right: -18px;
+    bottom: -4px;
+    background: url("https://d33wubrfki0l68.cloudfront.net/267b6a9cac527877c2f61b143103e6e23ad6c917/ddf14/brush-stroke-banner-6.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0;
+    content: "";
+    display: block;
+    z-index: -1;
+    opacity: 1;
+}
+
+.main {
+    width: 90%;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 30px 0;
+    box-sizing: border-box;
+}
+
+.title-image {
+    width: 450px;
+    height: auto;
+}
+
+.emoji {
+    position: relative;
+    top: 2px;
+    font-size: 1.5em;
+    line-height: 0;
+}
+
+.daterange {
+    font-size: .8em;
+    color: var(--main-light-text-color);
+}
+
+.click-emoji {
+    animation: jump-in 75ms ease-in;
+    font-size: 2em;
+}
+
+.fall-down.click-emoji {
+    animation-name: fall-down;
+    animation-timing-function: ease-in;
+}
+
+.fun-mode-toggle-form {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    font-family: 'Merriweather', Georgia, 'Times New Roman', Times, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", serif;
+    color: #626080;
+    color: var(--main-light-text-color);
+    font-size: .75em;
+}
+
+    .fun-mode-toggle-form > label {
+        flex-shrink: 0;
+    }
+
+        .fun-mode-toggle-form > label:first-child {
+            margin-right: 10px;
+        }
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #626080;
+    border: 1px solid var(--main-light-text-color);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+    .slider:before {
+        position: absolute;
+        content: '😜\00a0';
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 50%;
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+input:checked + .slider {
+    border: 1px solid rgba(255,67,164, 1);
+    border: 1px solid rgba(var(--accent), 1);
+    background: rgba(255,67,164, 1);
+    background: rgba(var(--accent), 1);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 2px 1px rgba(255,67,164, 1);
+    border-color: rgba(255,67,164, 1);
+    box-shadow: 0 0 2px 1px rgba(var(--accent), 1);
+    border-color: rgba(var(--accent), 1);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+hr {
+    background: none;
+    border: none;
+    border-top: 1px solid #e9e9f2;
+    border-top: 1px solid var(--main-border-color);
+    margin: 30px auto;
+    width: 80%;
+}
+
+body.fun-mode hr {
+    border-color: rgba(255,67,164, 1);
+    border-color: rgba(var(--accent), 1);
+}
+
+#easter-egg-hint {
+    position: fixed;
+    top: 65px;
+    left: calc(100vw - 200px);
+    padding: 5px 10px;
+    width: 150px;
+    color: rgba(255,67,164, 1);
+    color: rgba(var(--accent), 1);
+    border: 1px solid rgba(255,67,164, .6);
+    border: 1px solid rgba(var(--accent), .6);
+    border-radius: 4px;
+    box-shadow: 0 0 2px 1px rgba(255,67,164, .3);
+    box-shadow: 0 0 2px 1px rgba(var(--accent), .3);
+    background: rgba(255,67,164, .05);
+    background: rgba(var(--accent), .05);
+    display: none;
+    font-family: 'Sniglet', 'Comic Sans MS', "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", serif;
+}
+
+@media (max-width: 600px) {
+    #easter-egg-hint {
+        display: none !important;
+    }
+}
+
+#progress {
+    pointer-events: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background: var(--main-border-color);
+    border-radius: 8px;
+    width: 100%;
+}
+
+    #progress::-webkit-progress-bar {
+        background-color: transparent;
+    }
+
+::-webkit-progress-value {
+    border-radius: 8px;
+    background: rgba(255,67,164, 1);
+    background: rgb(var(--accent));
+}
+
+::-moz-progress-bar {
+    border-radius: 8px;
+    background: rgba(255,67,164, 1);
+    background: rgb(var(--accent));
+}
+
+.profile-pic {
+    width: 100%;
+    height: auto;
+    margin: 5px 0;
+}
+
+body.fun-mode #easter-egg-hint {
+    display: block;
+}
