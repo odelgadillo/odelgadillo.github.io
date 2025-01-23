@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="200px" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>tc</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="tc" transform="translate(0.000000, 0.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <polygon id="Path" points="200 0 200 66.6666667 133.333333 66.6666667 133.333333 200 66.6666667 200 66.6666667 66.6666667 0 66.6666667 0 0"></polygon>
+            <rect id="Rectangle" x="266.666667" y="0" width="133.333333" height="66.6666667"></rect>
+            <polygon id="Path" points="400 133.333333 400 200 200 200 200 66.6666667 266.666667 66.6666667 266.666667 133.333333"></polygon>
+        </g>
+    </g>
+</svg>
