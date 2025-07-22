@@ -1,7 +1,7 @@
 ﻿var funMode = false;
 var today = new Date();
 
-// Regular days just use these emoji
+// En días normales solo se usan estos emoji
 var possibleEmoji = [
     '🐻',
     '🤓',
@@ -12,7 +12,7 @@ var possibleEmoji = [
     '🤪'
 ];
 
-// Special emoji if close to Christmas
+// Emoji especiales si es cerca de Navidad
 if (today.getMonth() === 11 && [21, 22, 23, 24, 25, 26].indexOf(today.getDate()) !== -1) {
     possibleEmoji = [
         '❄️',
@@ -25,8 +25,7 @@ document.body.addEventListener('click', function (event) {
 
     if (funMode && !event.target.getAttribute("href") && event.target.parentNode.nodeName !== 'LABEL' && event.target.id !== 'easter-egg-hint') {
         /* 
-         * generate random number that falls between 0 and the total number 
-         * of emoji possibilities
+         * Genera un número aleatorio entre 0 y el total de emojis posibles
         */
         var randomNumber = Math.round(Math.random() * possibleEmoji.length);
 
@@ -34,15 +33,14 @@ document.body.addEventListener('click', function (event) {
         span.textContent = possibleEmoji[randomNumber];
         span.className = 'emoji click-emoji';
         /* 
-         * event.clientX is where the mouse was horizontally at the time of 
-         * the click. This way we can insert the emoji in the exact location 
-         * the user clicked.
+         * event.clientX es la posición horizontal del mouse al momento del click.
+         * Así podemos insertar el emoji exactamente donde el usuario hizo click.
         */
         span.style.left = event.clientX + 'px';
-        // event.clientY - same idea as clientX, but vertical position.
+        // event.clientY - misma idea que clientX, pero posición vertical.
         span.style.top = event.clientY + 'px';
-        /* Of course these values are useless if we don’t set the emoji's
-         * position to something outside the normal flow of content. */
+        /* Estos valores no sirven si no ponemos la posición del emoji
+         * fuera del flujo normal del contenido. */
         span.style.position = 'fixed';
         document.body.appendChild(span);
     }
@@ -50,17 +48,15 @@ document.body.addEventListener('click', function (event) {
 
 document.addEventListener('keyup', function (event) {
     if (event.keyCode === 67) { // c
-        // Find all emoji elements that we want to sweep away
+        // Buscar todos los elementos emoji que queremos eliminar
         var clickEmoji = document.getElementsByClassName('click-emoji');
         var totalEmoji = clickEmoji.length;
 
-        /* If you want to support older browsers you may want to 
-         * polyfill forEach https://caniuse.com/#search=foreach
-        */
+        /* Si quieres soportar navegadores antiguos, podrías usar un polyfill para forEach https://caniuse.com/#search=foreach */
         Array.from(clickEmoji).forEach(function (emoji, index) {
             /*
-             * Change the animation delay to be random so that they fall off 
-             * at different times, not all at once
+             * Cambia el delay de la animación para que caigan en diferentes momentos,
+             * no todos al mismo tiempo
             */
             var maximumDelay = totalEmoji.length > 10 ? 1000 : 400;
             if (index === 0) {
@@ -70,19 +66,17 @@ document.addEventListener('keyup', function (event) {
             }
 
             /* 
-             * Make animation duration random as well for the same reason: 
-             * Makes it more interesting if they fall at different speeds
+             * También hace aleatoria la duración de la animación para que caigan a diferentes velocidades
              */
             emoji.style['animation-duration'] = Math.max(Math.round(Math.random() * 700), 100) + 'ms';
 
-            // Once the emoji is done falling, we can remove it from the DOM
+            // Cuando el emoji termina de caer, lo eliminamos del DOM
             emoji.addEventListener('animationend', function () {
                 document.body.removeChild(emoji);
             });
 
             /*
-             * The remainder of the animation logic is in CSS, triggered by 
-             * the fall-down class
+             * El resto de la lógica de animación está en CSS, activada por la clase fall-down
             */
             emoji.classList.add('fall-down');
         });
